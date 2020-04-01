@@ -1,0 +1,15 @@
+{
+  "name": "hutton-calculator",
+  "version": "1.0.0",
+  "description": "A Hutton Cipher calculator and instructions for performing it by hand.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hutton",
+    "cipher"
+  ],
+  "author": "GirkovArpa",
+  "license": "MIT"
+}

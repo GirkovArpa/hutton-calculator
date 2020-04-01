@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <title>The Hutton Cipher</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link href="floating-labels.css" rel="stylesheet">
+    <script src="index.js"></script>
+    <style>
+      .no-pointer-events {
+        pointer-events: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form class="form-signin">
+      <div class="text-center mb-4">
+        <h1 class="h3 mb-3 font-weight-normal">The Hutton Cipher</h1>
+        <p>A secure, easy-to-use hand cipher.<br>Invented by
+          <code><a href="https://old.reddit.com/user/ericbondhutton">u/EricBondHutton</a></code>.</p>
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" id="input" class="form-control" placeholder="Plaintext / Ciphertext" required autofocus>
+        <label class="no-pointer-events" for="input">Plaintext / Ciphertext</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" id="password" class="form-control" placeholder="Password" required>
+        <label class="no-pointer-events" for="password">Password</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" id="key" class="form-control" placeholder="Key" required>
+        <label class="no-pointer-events" for="key">Key</label>
+      </div>
+
+      <div class="form-label-group">
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="v1" name="version">
+          <label class="custom-control-label" for="v1">v1</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" id="v2" name="version" checked>
+          <label class="custom-control-label" for="v2">v2</label>
+        </div>
+      </div>
+
+      <div class="btn-group d-flex" role="group">
+        <button type="button" class="btn btn-primary w-100" id="encrypt">Encrypt</button>
+        <button type="button" class="btn btn-primary w-100" id="decrypt">Decrypt</button>
+      </div>
+
+      <br>
+
+      <div class="form-label-group">
+        <input type="text" id="alphabet" class="form-control" placeholder="Keyed alphabet" readonly>
+        <label class="no-pointer-events" for="alphabet">Keyed alphabet</label>
+      </div>
+
+      <div class="form-label-group">
+        <input type="text" id="output" class="form-control" placeholder="Output" readonly>
+        <label class="no-pointer-events" for="output">Output</label>
+      </div>
+      <p class="mt-5 mb-3 text-muted text-center">Click <a href="howto.html">here</a> to learn how to do it by hand.</p>
+    </form>
+    <script>
+      const onclick = id => {
+        const input = document.getElementById('input').value;
+        const password = document.getElementById('password').value;
+        const key = document.getElementById('key').value;
+        const version = (() => document.getElementById('v2').checked ? 2 : 1)();
+        const decrypt = id == 'decrypt';
+        const { output, alphabet } = hutton(version, input, password, key, decrypt);
+        document.getElementById('alphabet').value = alphabet;
+        document.getElementById('output').value = output;
+      };
+      document.getElementById('encrypt').addEventListener('click', () => onclick('encrypt'));
+      document.getElementById('decrypt').addEventListener('click', () => onclick('decrypt'));
+    </script>
+
+  </body>
+
+</html>

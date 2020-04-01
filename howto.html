@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+    <title>The Hutton Cipher</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <link href="floating-labels.css" rel="stylesheet">
+  </head>
+  <style>
+    .container {
+      height: 100%;
+    }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-6">
+          <h2>
+            <center>How It Works</center>
+          </h2>
+          <p>The key is stripped of any redundant letters, then the English alphabet is stripped of all key letters and
+            appended to
+            the key.</p>
+
+          <p>This is the keyed alphabet.</p>
+
+          <p>Each password letter is replaced with its position in the English alphabet (A is replaced with 1). This
+            resulting sequence of numbers is written repeatedly beneath the plaintext.</p>
+
+          <h5>Perform the following operation for each letter of the plaintext:</h5>
+
+          <p>Take the number below the plaintext letter and add it to the letter's position in the keyed alphabet. In
+            version 2, also add it to the English alphabet position of whatever letter happens to be first in the keyed
+            alphabet.</p>
+
+          <p>If this number is greater than 26, repeatedly subtract 26 until it isn't.</p>
+
+          <p>The letter at that position in the keyed alphabet becomes the newest ciphertext letter.</p>
+
+          <p>In order to further scramble the keyed alphabet, locate the plaintext letter and new ciphertext letter, and
+            swap their places within it.</p>
+
+          <h5>Decryption is the same, except the addition steps are replaced with subtraction, and if one ends up with a
+            negative number, 26 is to be repeatedly added to it until it's positive.</h5>
+
+          <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/cKrlmstz2yo?rel=0"
+              allowfullscreen></iframe>
+          </div>
+          <br>
+          <div class="embed-responsive embed-responsive-16by9">
+              <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/4LnNzc23_ww?rel=0"
+                allowfullscreen></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>
